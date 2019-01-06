@@ -1,7 +1,16 @@
 <template>
   <f7-page>
-    <f7-navbar title="Form" back-link="Back"></f7-navbar>
-    <f7-block-title>Form Example</f7-block-title>
+    <!-- <f7-navbar title="Form" back-link="Back"></f7-navbar>
+    <f7-block-title>Form Example</f7-block-title> -->
+    <f7-navbar>
+      <f7-nav-left>
+        <f7-link icon-if-ios="f7:menu" icon-if-md="material:menu" panel-open="left"></f7-link>
+      </f7-nav-left>
+      <f7-nav-title>My App</f7-nav-title>
+      <f7-nav-right>
+        <f7-link icon-if-ios="f7:menu" icon-if-md="material:menu" panel-open="right"></f7-link>
+      </f7-nav-right>
+    </f7-navbar>    
     <f7-list form>
       <f7-list-item>
         <f7-label>Name</f7-label>
@@ -29,6 +38,11 @@
           <option selected>Male</option>
           <option>Female</option>
         </f7-input>
+      </f7-list-item>
+      <f7-list-item title="Car" smart-select :smart-select-params="{openIn: 'page', searchbar: true, searchbarPlaceholder: 'Search car'}">
+        <select name="addon" multiple>
+          <option v-for="addon in selectOptions" :value="addon.label" :key="addon.value">{{addon.label}}</option>
+        </select>
       </f7-list-item>
       <f7-list-item>
         <f7-label>Birth date</f7-label>
@@ -102,5 +116,24 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data () {
+    return {
+      selectOptions: null
+    }
+  },
+  created () {
+    fetch('/rest/extensions').then((resp) => {
+      const json = resp.json()
+      json.then((j) => {
+        this.selectOptions = j.map((i) => {
+          return {
+            value: i.id,
+            label: i.label
+          }
+        })
+      })
+    })
+  }  
+}
 </script>

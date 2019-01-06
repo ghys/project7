@@ -1,6 +1,6 @@
 <template>
   <f7-page>
-    <f7-navbar title="Left Panel"></f7-navbar>
+    <!-- <f7-navbar title="Left Panel"></f7-navbar> -->
     <f7-block strong>
       <p>Left panel content goes here</p>
     </f7-block>

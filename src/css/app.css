@@ -1,1 +1,23 @@
 /* Your app styles here */
+
+@media (min-width: 1024px) {
+    .block-narrow {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .block-narrow .row {
+        width: 720px;
+    }
+
+    .block-narrow .col {
+        width: 720px;
+        display: initial;
+    }
+}
+
+.md .panel-visible-by-breakpoint {
+    box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.3);
+}

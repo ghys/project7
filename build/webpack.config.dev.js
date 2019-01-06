@@ -10,6 +10,8 @@ function resolvePath(dir) {
   return path.join(__dirname, '..', dir);
 }
 
+const apiBaseUrl = 'http://openhab:8080'
+
 module.exports = {
   mode: 'development',
   entry: [
@@ -29,11 +31,18 @@ module.exports = {
   },
   devServer: {
     hot: true,
-    open: true,
+    open: false,
+    port: 8082,
     compress: true,
+    disableHostCheck: true,
     contentBase: '/www/',
     watchOptions: {
       poll: true
+    },
+    proxy: {
+      '/rest': apiBaseUrl,
+      '/chart': apiBaseUrl,
+      '/proxy': apiBaseUrl
     }
   },
   module: {
