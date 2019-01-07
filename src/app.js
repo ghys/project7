@@ -17,6 +17,8 @@ import AppStyles from './css/app.css';
 // Import App Component
 import App from './app.vue';
 
+import SitemapWidgetGeneric from './components/sitemap/widget-generic.vue'
+
 // Init F7 Vue Plugin
 Framework7.use(Framework7Vue)
 
@@ -30,3 +32,5 @@ new Vue({
     app: App
   }
 });
+
+Vue.component('sitemap-widget-generic', SitemapWidgetGeneric);

@@ -38,7 +38,7 @@ export default [
     component: PanelRightPage,
   },
   {
-    path: '/sitemap/:sitemapId',
+    path: '/sitemap/:sitemapId/:pageId',
     component: SitemapPage,
     options: {
       animate: false

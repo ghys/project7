@@ -18,10 +18,11 @@
       </f7-list>
       <f7-block-title>Sitemaps</f7-block-title>
       <f7-list>
-        <f7-list-item link="/sitemap/_default" title="Default" view="#main-view" panel-close></f7-list-item>
+        <f7-list-item v-for="sitemap in sitemaps" :key="sitemap.name" :link="'/sitemap/' + sitemap.name + '/' + sitemap.name" :title="sitemap.label" view="#main-view" panel-close></f7-list-item>
+        <!-- <f7-list-item link="/sitemap/_default" title="Default" view="#main-view" panel-close></f7-list-item>
         <f7-list-item link="/sitemap/other" title="Other sitemap" view="#main-view" panel-close></f7-list-item>
         <f7-list-item link="/sitemap/floors" title="By Floor" view="#main-view" panel-close></f7-list-item>
-        <f7-list-item link="/sitemap/devices" title="By Device" view="#main-view" panel-close></f7-list-item>
+        <f7-list-item link="/sitemap/devices" title="By Device" view="#main-view" panel-close></f7-list-item> -->
       </f7-list>      
       <f7-block-title>Administration</f7-block-title>
       <f7-list>
@@ -86,6 +87,7 @@ export default {
   },
   data () {
     return {
+      sitemaps: [],
       // Framework7 parameters here
       f7params: {
         id: 'io.framework7.testapp', // App bundle ID
@@ -102,9 +104,17 @@ export default {
           swipe: 'left',
           leftBreakpoint: 768,
           // rightBreakpoint: 1440,
-        }        
+        }
       },
     }
+  },
+  created () {
+    fetch('/rest/sitemaps').then((resp) => {
+      const json = resp.json()
+      json.then((j) => {
+        this.sitemaps = j
+      })
+    })
   }
 }
 </script>

@@ -42,7 +42,8 @@ module.exports = {
     proxy: {
       '/rest': apiBaseUrl,
       '/chart': apiBaseUrl,
-      '/proxy': apiBaseUrl
+      '/proxy': apiBaseUrl,
+      '/icon': apiBaseUrl
     }
   },
   module: {
