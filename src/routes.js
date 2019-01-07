@@ -39,10 +39,7 @@ export default [
   },
   {
     path: '/sitemap/:sitemapId/:pageId',
-    component: SitemapPage,
-    options: {
-      animate: false
-    }
+    component: SitemapPage
   },
   {
     path: '/about/',

@@ -18,7 +18,7 @@
       </f7-list>
       <f7-block-title>Sitemaps</f7-block-title>
       <f7-list>
-        <f7-list-item v-for="sitemap in sitemaps" :key="sitemap.name" :link="'/sitemap/' + sitemap.name + '/' + sitemap.name" :title="sitemap.label" view="#main-view" panel-close></f7-list-item>
+        <f7-list-item v-for="sitemap in sitemaps" :animate="false" :key="sitemap.name" :link="'/sitemap/' + sitemap.name + '/' + sitemap.name" :title="sitemap.label" view="#main-view" panel-close></f7-list-item>
         <!-- <f7-list-item link="/sitemap/_default" title="Default" view="#main-view" panel-close></f7-list-item>
         <f7-list-item link="/sitemap/other" title="Other sitemap" view="#main-view" panel-close></f7-list-item>
         <f7-list-item link="/sitemap/floors" title="By Floor" view="#main-view" panel-close></f7-list-item>
